@@ -112,7 +112,7 @@ export default function D2R(){
                     </div>
                 </div>
             </div>
-            
+
             {/* ------ Qualitative result------ */}
             <div class="page-section">
                 <div class="container">
@@ -134,6 +134,39 @@ export default function D2R(){
                     </div>
                 </div>
             </div>
+
+            {/* ------Footer------------- */}
+            <footer class="page-footer">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-3 py-3">
+                      {/* <h3>Rve<span class="fg-primary">Tive.</span></h3> */}
+                    </div>
+                    <div class="col-lg-3 py-3">
+                      
+                    </div>
+                    <div class="col-lg-3 py-3">
+                      
+                    </div>
+                    <div class="col-lg-3 py-3">
+                      
+                    </div>
+                  </div>
+
+                  {/* <hr /> */}
+
+                  <div class="row mt-4">
+                    <div class="col-md-6">
+                      <p>Copyright 2020. This template designed by <a href="https://macodeid.com">MACode ID</a></p>
+                    </div>
+                    <div class="col-md-6 text-right">
+                      <div class="sosmed-button">
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </footer>
         </>
     )
 
