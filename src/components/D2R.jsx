@@ -16,9 +16,9 @@ export default function D2R(){
     // const [method, setMethod] = useState([])
     var teaser_img = require('./assets/teaser_2.png')
     var framework_img = require('./assets/framework_1.png')
-    // var gif_1 = require('./assets/gif/1.gif')
-    // var gif_2 = require('./assets/gif/2.gif')
-    // var gif_3 = require('./assets/gif/3.gif')
+    var gif_1 = require('./assets/gif/1.gif')
+    var gif_2 = require('./assets/gif/2.gif')
+    var gif_3 = require('./assets/gif/3.gif')
 
     var input_1 = require('./assets/1703.png')
     var gif_ex1 = require('./assets/gif/ex_1.gif')
@@ -106,6 +106,28 @@ export default function D2R(){
                                 <div class="col-lg-4 py-3">
                                     <img src={gif_our1.default}  width="256" alt="gambar gif"/>
                                     <h5 class="title-section">Ours</h5>
+                                </div>
+                            </div>
+                        {/* </div> */}
+                    </div>
+                </div>
+            </div>
+            
+            {/* ------ Qualitative result------ */}
+            <div class="page-section">
+                <div class="container">
+                    <div class="text-center">
+                        <h2 class="title-section">More Qualitative results</h2>
+                        {/* <div class="owl-carousel team-carousel mt-5"> */}
+                            <div class="row mt-3">
+                                <div class="col-lg-4 py-3">
+                                    <img src={gif_1.default}  width="256" alt="gambar gif"/>
+                                </div> 
+                                <div class="col-lg-4 py-3">
+                                    <img src={gif_2.default}  width="256" alt="gambar gif"/>
+                                </div>
+                                <div class="col-lg-4 py-3">
+                                    <img src={gif_3.default}  width="256" alt="gambar gif"/>
                                 </div>
                             </div>
                         {/* </div> */}
