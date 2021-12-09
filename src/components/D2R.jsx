@@ -23,7 +23,7 @@ export default function D2R(){
                 <div class="slider-wrapper">
                     <div class="owl-carousel hero-carousel">
                         <div class="hero-carousel-item">
-                            <img src={teaser_img.default} alt= "img"/>
+                            <img src={teaser_img.default} alt= "gambar teaser"/>
                             <div class="img-caption">
                                 <h1 class="mb-4">Holistic 3D Body Reconstruction from a Blurred Image </h1>
                                 <div class="subhead">In CVPR 2022 Submission</div>
@@ -65,7 +65,7 @@ export default function D2R(){
                     <div class="text-center">
                         <h2 class="title-section">Our framework</h2>
                         <div class="hero-carousel-item-framework">
-                            <img src={framework_img.default} alt="image framework"/>
+                            <img src={framework_img.default} alt="gambar framework"/>
                         </div>
                     </div>
                 </div>
