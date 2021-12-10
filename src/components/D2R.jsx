@@ -8,9 +8,60 @@ import '../vendor/animate/animate.css'
 import '../vendor/owl-carousel/css/owl.carousel.css'
 import '../vendor/fancybox/css/jquery.fancybox.css'
 
-// const MethodContext = React.createContext({
-//     Method_info: [], fetchMethod_info: () => {}
-//   })
+//--Run method
+function RunMethod(){
+    //--Function to handle input from HTML
+    const handleInput = event  => {
+        var imageFile = event.target.files[0];
+        // console.log(imageFile)
+        // setImg(imageFile['name'])
+        var reader = new FileReader();
+        //--Handle to show image  
+        reader.onload = function (e) {
+            var img = document.createElement("img");    
+            img.onload = function (event) {
+                //--Handle to resize the image
+                var canvas = document.createElement("canvas");
+                canvas.width = 256;
+                canvas.height = 256;
+
+                var ctx = canvas.getContext("2d");
+                ctx.drawImage(img, 0, 0, 256, 256);
+                var dataurl = canvas.toDataURL(imageFile.type);
+
+                document.getElementById("input-image").src = dataurl;
+                console.log(dataurl)
+            }
+            img.src = e.target.result;
+            console.log(e.target.result)
+        }
+        reader.readAsDataURL(imageFile)
+
+        // setItem(imageFile['name'])
+        // console.log(imageFile['name'])
+    }
+    return (
+        <>
+            <input accept="image/*" type='file' onChange={handleInput} />
+                <div class="row mt-3">
+                    <div class="col-lg-4 py-3">
+                        <img id="input-image" src="#" alt=""/>
+                    </div> 
+                    <div class="col-lg-4 py-3">
+                        <img id="d2r-mesh-image" src="#" alt=""/>
+                    </div>
+                    <div class="col-lg-4 py-3">
+                        <img id="d2r-mesh-only" src="#" alt=""/>
+                    </div>
+                </div>
+                <div class="text-center">
+                    {/* <h5> Prediction time: {time['pred_time']} </h5>
+                    <button type="button" onClick={handleSubmit} class="btn btn-primary px-5"> Run method</button> */}
+                    
+                </div>
+        </>
+    )
+}
 
 export default function D2R(){
     // const [method, setMethod] = useState([])
@@ -78,8 +129,17 @@ export default function D2R(){
                     </div>
                 </div>
             </div>
-            {/* ------ Live demo ------ */}
 
+            {/* ------ Live demo ------ */}
+            <div class="page-section">
+                <div class="container">
+                    <div class="text-center">
+                        <h2 class="title-section">Live demo</h2>
+                        <RunMethod />
+                    </div>
+                </div>
+            </div>
+            
             {/* ------ Qualitative result------ */}
             <div class="page-section">
                 <div class="container">
