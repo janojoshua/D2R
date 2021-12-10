@@ -47,7 +47,7 @@ function RunMethod(){
             "path": item
         }
         
-        const response = await fetch("/d2r", {
+        const response = await fetch("http://dab2-165-246-39-29.jp.ngrok.io/d2r", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newTodo)
