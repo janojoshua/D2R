@@ -3,7 +3,7 @@
   "homepage": "https://janojoshua.github.io/d2r",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://dab2-165-246-39-29.jp.ngrok.io",
+  "proxy": "https://dab2-165-246-39-29.jp.ngrok.io",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^11.2.7",
