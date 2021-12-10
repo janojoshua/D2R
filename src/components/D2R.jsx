@@ -10,11 +10,15 @@ import '../vendor/fancybox/css/jquery.fancybox.css'
 
 //--Run method
 function RunMethod(){
+    const [item, setItem] = React.useState("")
+    const [time, setTime] = React.useState({})
+    const [ImgName, setImg] = React.useState("")
     //--Function to handle input from HTML
     const handleInput = event  => {
         var imageFile = event.target.files[0];
         // console.log(imageFile)
-        // setImg(imageFile['name'])
+        setImg(imageFile['name'])
+        
         var reader = new FileReader();
         //--Handle to show image  
         reader.onload = function (e) {
@@ -36,10 +40,27 @@ function RunMethod(){
             console.log(e.target.result)
         }
         reader.readAsDataURL(imageFile)
-
-        // setItem(imageFile['name'])
-        // console.log(imageFile['name'])
+        setItem(imageFile['name'])
     }
+    const handleSubmit = async (event) => {
+        const newTodo = {
+            "path": item
+        }
+        
+        const response = await fetch("https://dab2-165-246-39-29.jp.ngrok.io/d2r", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(newTodo)
+            })
+        //--Get the response from FastAPI 
+        const data = await response.json()
+        setTime(data)
+        console.log(data['js_mesh_only'])
+        console.log(data['encoded_mesh_only'])
+        Render_image("d2r-mesh-only", data['mesh_only'])
+        Render_image("d2r-mesh-image", data['mesh_image'])
+        
+        }
     return (
         <>
             <input accept="image/*" type='file' onChange={handleInput} />
@@ -55,14 +76,20 @@ function RunMethod(){
                     </div>
                 </div>
                 <div class="text-center">
-                    {/* <h5> Prediction time: {time['pred_time']} </h5>
-                    <button type="button" onClick={handleSubmit} class="btn btn-primary px-5"> Run method</button> */}
+                    <h5> Filename: {ImgName} </h5>
+                    <h5> Prediction time: {time['pred_time']} </h5>
+                    <button type="button" onClick={handleSubmit} class="btn btn-primary px-5"> Run method</button>
                     
                 </div>
         </>
     )
 }
-
+function Render_image(var_name, encoded_img){
+    var dataurl = "data:image/png;base64," + encoded_img
+    console.log(encoded_img)
+    document.getElementById(var_name).src = dataurl;
+    // reader.readAsDataURL(imageFile)
+}
 export default function D2R(){
     // const [method, setMethod] = useState([])
     var teaser_img = require('./assets/teaser_2.png')
