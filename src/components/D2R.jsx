@@ -49,8 +49,8 @@ function RunMethod(){
         const response = await fetch("/d2r", {
             method: "POST",
             headers: { 
-                'Content-Type': 'application/json',
-                'Accept': 'application/json' },
+                'Content-Type': 'application/json; charset=UTF-8',
+                "access-control-allow-origin" : "*"},
             body: JSON.stringify(newTodo)
             })
         //--Get the response from FastAPI 
